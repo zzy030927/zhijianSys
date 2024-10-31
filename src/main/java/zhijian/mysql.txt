@@ -1,0 +1,33 @@
+USE test09;
+
+CREATE TABLE `defectanalyze` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `productName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `operator` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `checkParameters` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `defectTotal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qualifiedNumber` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notQualifiedNumber` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `defectBackground` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `defectTexture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `checkTime` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+USE test09;
+
+CREATE TABLE `defectdata` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `defectId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `operator` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `productName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `defectType` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `coordinate` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `area` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `defectAnalyze_id` int  DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `defectanalyze_defectdata_FK` (`defectAnalyze_id`)
+
+
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
